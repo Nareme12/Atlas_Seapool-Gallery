@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sea Pool Gallery</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: white;
+        color: #333;
+    }
+
+    .gallery {
+        width: 100%;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .image-box {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.55);
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: rgba(0,0,0,0.8);
+    }
+
+    #prev {
+        left: 15px;
+    }
+
+    #next {
+        right: 15px;
+    }
+
+    .info {
+        padding: 12px 5px;
+    }
+
+    .name {
+        font-size: 19px;
+        font-weight: bold;
+    }
+
+    .country {
+        font-size: 14px;
+        margin-top: 3px;
+    }
+
+    .author {
+        font-size: 12px;
+        color: #777;
+        margin-top: 5px;
+    }
+
+    .counter {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0,0,0,0.55);
+        color: white;
+        padding: 5px 9px;
+        border-radius: 12px;
+        font-size: 12px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="gallery">
+
+    <div class="image-box">
+
+        <img id="photo" src="" alt="Sea pool">
+
+        <button id="prev" onclick="previous()">‹</button>
+        <button id="next" onclick="next()">›</button>
+
+        <div class="counter" id="counter"></div>
+
+    </div>
+
+    <div class="info">
+
+        <div class="name" id="name"></div>
+
+        <div class="country" id="country"></div>
+
+        <div class="author" id="author"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const pools = [
+
+    {
+        name: "Avalon Rock Pool",
+        country: "Australia",
+        author: "Thomas Yohei",
+        image: "https://images.unsplash.com/photo-1599552894420-661f2ae0da78?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        name: "La Libertad Sea Pool",
+        country: "El Salvador",
+        author: "Meeg von Haartman",
+        image: "https://images.unsplash.com/photo-1735770515751-9b49f00d2d8c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        name: "Piscina Azenhas do Mar",
+        country: "Portugal",
+        author: "Bea Vallejo",
+        image: "https://images.unsplash.com/photo-1660083310880-441eb40f40bf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        name: "Glencairn Tidal Pool",
+        country: "South Africa",
+        author: "Simon Barber",
+        image: "https://images.unsplash.com/photo-1662537748445-b2e851d18366?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        name: "Bude Sea Pool",
+        country: "United Kingdom",
+        author: "Nick Russil",
+        image: "https://images.unsplash.com/photo-1639406077808-9dd59d374b63?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+
+];
+
+let current = 0;
+
+
+function showPool() {
+
+    const pool = pools[current];
+
+    document.getElementById("photo").src = pool.image;
+
+    document.getElementById("name").textContent = pool.name;
+
+    document.getElementById("country").textContent = pool.country;
+
+    document.getElementById("author").textContent =
+        "Photo: " + pool.author;
+
+    document.getElementById("counter").textContent =
+        (current + 1) + " / " + pools.length;
+}
+
+
+function next() {
+
+    current++;
+
+    if (current >= pools.length) {
+        current = 0;
+    }
+
+    showPool();
+}
+
+
+function previous() {
+
+    current--;
+
+    if (current < 0) {
+        current = pools.length - 1;
+    }
+
+    showPool();
+}
+
+
+showPool();
+
+</script>
+
+</body>
+</html>
