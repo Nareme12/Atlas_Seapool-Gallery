@@ -1,160 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sea Pool Gallery</title>
 
 <style>
 
-    * {
-        box-sizing: border-box;
-    }
+/* FORCE DARK BACKGROUND */
 
-    body {
-        margin: 0;
-        padding: 0;
-        background: #2b2b2b;
-        color: #ffffff;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+html {
+    background: #252525 !important;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background-color: #252525 !important;
+    color: #ffffff !important;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+}
+
+
+/* MAIN GALLERY */
+
+.gallery {
+    width: 100%;
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding: 20px 15px;
+
+    text-align: center;
+
+    background: #252525 !important;
+}
+
+
+/* IMAGE AREA */
+
+.image-container {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 15px;
+}
+
+
+/* SMALLER IMAGES */
+
+.image-container img {
+
+    display: block;
+
+    max-width: 60%;
+
+    max-height: 350px;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 3px;
+}
+
+
+/* NAVIGATION BUTTONS */
+
+.nav-button {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    border: 1px solid #555555;
+
+    background: #3b3b3b !important;
+
+    color: #ffffff !important;
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition: background 0.2s ease;
+}
+
+
+.nav-button:hover {
+
+    background: #4a4a4a !important;
+}
+
+
+.prev {
+    left: 10%;
+}
+
+
+.next {
+    right: 10%;
+}
+
+
+/* INFORMATION */
+
+.info {
+
+    margin-top: 5px;
+
+}
+
+
+.name {
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+
+    color: #ffffff !important;
+}
+
+
+.country {
+
+    font-size: 14px;
+
+    color: #d0d0d0 !important;
+
+    margin-bottom: 4px;
+}
+
+
+.author {
+
+    font-size: 12px;
+
+    color: #a5a5a5 !important;
+}
+
+
+/* COUNTER */
+
+.counter {
+
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    color: #a5a5a5 !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
 
     .gallery {
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 25px 20px;
-        text-align: center;
+
+        padding: 15px 10px;
+
     }
 
-    /* IMAGE AREA */
-
-    .image-container {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 18px;
-    }
 
     .image-container img {
-        display: block;
-        max-width: 75%;
-        max-height: 500px;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        border-radius: 4px;
+
+        max-width: 70%;
+
+        max-height: 280px;
+
     }
 
-    /* NAVIGATION BUTTONS */
 
     .nav-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
 
-        width: 42px;
-        height: 42px;
+        width: 34px;
 
-        border-radius: 50%;
-        border: 1px solid #555555;
+        height: 34px;
 
-        background: rgba(55, 55, 55, 0.9);
-        color: #ffffff;
+        font-size: 19px;
 
-        font-size: 25px;
-        line-height: 38px;
-
-        cursor: pointer;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        transition: background 0.2s ease;
     }
 
-    .nav-button:hover {
-        background: rgba(75, 75, 75, 0.95);
-    }
 
     .prev {
-        left: 5%;
+
+        left: 2%;
+
     }
+
 
     .next {
-        right: 5%;
+
+        right: 2%;
+
     }
 
-    /* INFORMATION */
-
-    .info {
-        margin-top: 10px;
-    }
 
     .name {
-        font-size: 21px;
-        font-weight: 600;
-        margin-bottom: 6px;
-        color: #ffffff;
-    }
 
-    .country {
-        font-size: 15px;
-        color: #d0d0d0;
-        margin-bottom: 5px;
-    }
-
-    .author {
-        font-size: 13px;
-        color: #a9a9a9;
-    }
-
-    /* COUNTER */
-
-    .counter {
-        margin-top: 15px;
-        font-size: 13px;
-        color: #a9a9a9;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-
-        .gallery {
-            padding: 15px 10px;
-        }
-
-        .image-container img {
-            max-width: 82%;
-            max-height: 400px;
-        }
-
-        .nav-button {
-            width: 36px;
-            height: 36px;
-            font-size: 21px;
-        }
-
-        .prev {
-            left: 1%;
-        }
-
-        .next {
-            right: 1%;
-        }
-
-        .name {
-            font-size: 18px;
-        }
+        font-size: 17px;
 
     }
+
+}
 
 </style>
+
 </head>
 
 
@@ -162,38 +252,72 @@
 
 <div class="gallery">
 
+
     <div class="image-container">
 
-        <button class="nav-button prev" onclick="previousImage()">
+
+        <button
+            class="nav-button prev"
+            onclick="previousImage()"
+            aria-label="Previous image">
+
             &#10094;
+
         </button>
 
-        <img id="galleryImage" src="" alt="Sea pool">
 
-        <button class="nav-button next" onclick="nextImage()">
+        <img
+            id="galleryImage"
+            src=""
+            alt="Sea pool">
+
+
+        <button
+            class="nav-button next"
+            onclick="nextImage()"
+            aria-label="Next image">
+
             &#10095;
+
         </button>
+
 
     </div>
 
 
     <div class="info">
 
-        <div class="name" id="poolName"></div>
+        <div
+            class="name"
+            id="poolName">
+        </div>
 
-        <div class="country" id="poolCountry"></div>
 
-        <div class="author" id="poolAuthor"></div>
+        <div
+            class="country"
+            id="poolCountry">
+        </div>
+
+
+        <div
+            class="author"
+            id="poolAuthor">
+        </div>
 
     </div>
 
 
-    <div class="counter" id="counter"></div>
+    <div
+        class="counter"
+        id="counter">
+    </div>
+
 
 </div>
 
 
 <script>
+
 
 const images = [
 
@@ -204,32 +328,36 @@ const images = [
         url: "https://images.unsplash.com/photo-1599552894420-661f2ae0da78?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
 
+
     {
         name: "La Libertad Sea Pool",
         country: "El Salvador",
         author: "Meeg von Haartman",
-        url: "https://images.unsplash.com/photo-1735770515751-9b49f00d2d8c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaGdlfGVufDB8fHx8fA%3D%3D"
+        url: "https://images.unsplash.com/photo-1735770515751-9b49f00d2d8c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
+
 
     {
         name: "Piscina Azenhas do Mar",
         country: "Portugal",
         author: "Bea Vallejo",
-        url: "https://images.unsplash.com/photo-1660083310880-441eb40f40bf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaGdlfGVufDB8fHx8fA%3D%3D"
+        url: "https://images.unsplash.com/photo-1660083310880-441eb40f40bf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG9zdWJ8fGVufDB8fHx8fA%3D%3D"
     },
+
 
     {
         name: "Glencairn Tidal Pool",
         country: "South Africa",
         author: "Simon Barber",
-        url: "https://images.unsplash.com/photo-1662537748445-b2e851d18366?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaGdlfGVufDB8fHx8fA%3D%3D"
+        url: "https://images.unsplash.com/photo-1662537748445-b2e851d18366?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
+
 
     {
         name: "Bude Sea Pool",
         country: "United Kingdom",
         author: "Nick Russil",
-        url: "https://images.unsplash.com/photo-1639406077808-9dd59d374b63?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaGdlfGVufDB8fHx8fA%3D%3D"
+        url: "https://images.unsplash.com/photo-1639406077808-9dd59d374b63?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
 
 ];
@@ -240,26 +368,41 @@ let currentIndex = 0;
 
 function updateGallery() {
 
-    const image = document.getElementById("galleryImage");
+    const image =
+        document.getElementById("galleryImage");
 
-    const name = document.getElementById("poolName");
+    const name =
+        document.getElementById("poolName");
 
-    const country = document.getElementById("poolCountry");
+    const country =
+        document.getElementById("poolCountry");
 
-    const author = document.getElementById("poolAuthor");
+    const author =
+        document.getElementById("poolAuthor");
 
-    const counter = document.getElementById("counter");
+    const counter =
+        document.getElementById("counter");
 
 
-    image.src = images[currentIndex].url;
+    image.src =
+        images[currentIndex].url;
 
-    image.alt = images[currentIndex].name;
 
-    name.textContent = images[currentIndex].name;
+    image.alt =
+        images[currentIndex].name;
 
-    country.textContent = images[currentIndex].country;
 
-    author.textContent = "Photo: " + images[currentIndex].author;
+    name.textContent =
+        images[currentIndex].name;
+
+
+    country.textContent =
+        images[currentIndex].country;
+
+
+    author.textContent =
+        "Photo: " + images[currentIndex].author;
+
 
     counter.textContent =
         (currentIndex + 1) + " / " + images.length;
@@ -272,7 +415,9 @@ function nextImage() {
     currentIndex++;
 
     if (currentIndex >= images.length) {
+
         currentIndex = 0;
+
     }
 
     updateGallery();
@@ -285,7 +430,9 @@ function previousImage() {
     currentIndex--;
 
     if (currentIndex < 0) {
+
         currentIndex = images.length - 1;
+
     }
 
     updateGallery();
@@ -293,11 +440,14 @@ function previousImage() {
 }
 
 
-/* INITIAL IMAGE */
+/* INITIALIZE */
 
 updateGallery();
 
+
 </script>
 
+
 </body>
+
 </html>
